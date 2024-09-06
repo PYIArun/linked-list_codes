@@ -71,6 +71,7 @@ class List{
 
     void DeleteByValue(T x){
 
+
         if(head == NULL){
             cout<< "List is Empty!";
             return;
@@ -85,9 +86,14 @@ class List{
             return;
         }
 
-        while(temp->next!=NULL & temp->next->data!= x){
+        while(temp->next!=NULL && temp->next->data!= x){
             temp = temp->next;
         } 
+
+        if(temp->next == NULL){
+            cout<< "No Node with this value found.";
+            return;
+        }
 
         Node<T> *deleteTemp = temp->next;
         temp->next = temp->next->next;
@@ -165,7 +171,7 @@ int main()
     l.insertAtEnd(3);
     l.insertAtEnd(4);
     l.insertAtEnd(5);
-    l.insertAtBeginning(1);
+    l.insertAtBeginning(6);
     l.printList();
     return 0;
 }
