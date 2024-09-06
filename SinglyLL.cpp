@@ -38,6 +38,36 @@ class List{
 
     }
 
+    void deleteBeginning(){
+        if(head == NULL){
+            cout<< "List is Empty. Nothing to delete";
+            return;
+        }
+        Node<T> *temp = head;
+        head = head->next;
+
+        delete temp;
+    }
+
+    void deleteEnd(){
+        if(head ==NULL){
+            cout<< "List is Empty. Nothing to delete";
+            return;
+        }
+
+        Node<T> *temp = head;
+        Node<T> *prev = NULL;
+        while(temp->next !=NULL){
+            prev = temp;
+            temp = temp->next;
+        }
+
+        prev->next = temp->next;
+        delete temp;
+
+    }
+
+    
     void DeleteAtIndex(int index){
         
         if(index<0 || index >= this->length()){
@@ -101,34 +131,24 @@ class List{
         delete deleteTemp;
 
     }
-    void deleteBeginning(){
-        if(head == NULL){
-            cout<< "List is Empty. Nothing to delete";
+
+    void DeleteAll(){
+        if (head == NULL) {
+            cout << "List is Empty!";
             return;
         }
-        Node<T> *temp = head;
-        head = head->next;
-
-        delete temp;
-    }
-
-    void deleteEnd(){
-        if(head ==NULL){
-            cout<< "List is Empty. Nothing to delete";
-            return;
+        Node <T> *temp = NULL;
+        while(head->next!= NULL){
+            temp = head;
+            head = head->next;
+            delete temp;
         }
 
-        Node<T> *temp = head;
-        Node<T> *prev = NULL;
-        while(temp->next !=NULL){
-            prev = temp;
-            temp = temp->next;
-        }
-
-        prev->next = temp->next;
+        temp = head;
+        head= NULL;
         delete temp;
-
     }
+    
     bool isEmpty(){
         return head==NULL;
     }
@@ -145,6 +165,7 @@ class List{
         }
         return length;
     }
+
     void printList(){
 
         if(this->isEmpty()){
@@ -161,7 +182,6 @@ class List{
     }
 
 
-
 };
 
 int main()
@@ -172,6 +192,7 @@ int main()
     l.insertAtEnd(4);
     l.insertAtEnd(5);
     l.insertAtBeginning(6);
+    l.DeleteAll();
     l.printList();
     return 0;
 }
