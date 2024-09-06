@@ -38,6 +38,7 @@ class List{
 
     }
 
+    
     void deleteBeginning(){
         if(head == NULL){
             cout<< "List is Empty. Nothing to delete";
@@ -66,7 +67,6 @@ class List{
         delete temp;
 
     }
-
     
     void DeleteAtIndex(int index){
         
@@ -149,6 +149,58 @@ class List{
         delete temp;
     }
     
+
+    
+    int findValue(T x){
+
+        if(head == NULL){
+            cout<< "List is Empty!";
+            return 0;
+        }
+
+        Node<T> *temp = head;
+
+        if(head->data == x){
+            return 1;
+        }
+
+        while(temp->next!=NULL && temp->data!= x){
+            temp = temp->next;
+        } 
+
+        if(temp->next == NULL){
+            return 0;
+        }
+        else{
+            return 1;
+        }
+
+
+    }
+    
+    int SearchbyIndex(int index){
+
+        if(index<0){
+            return -1;
+        }
+
+        Node<T> *temp = head;
+
+
+        int counter = 0;
+        while(temp!= NULL && counter<index){
+            temp = temp->next;
+            counter++;
+        }
+
+        if(temp==NULL){
+            cout<<"\nIndex Out of Bounds Error!";
+        }
+
+        return temp->data;
+    }
+
+
     bool isEmpty(){
         return head==NULL;
     }
@@ -182,6 +234,7 @@ class List{
     }
 
 
+
 };
 
 int main()
@@ -192,7 +245,9 @@ int main()
     l.insertAtEnd(4);
     l.insertAtEnd(5);
     l.insertAtBeginning(6);
-    l.DeleteAll();
+
     l.printList();
+    cout<<endl;
+
     return 0;
 }
