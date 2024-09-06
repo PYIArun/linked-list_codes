@@ -201,6 +201,24 @@ class List{
     }
 
 
+
+    void reverse(){
+        Node<T> *current = head;
+        Node<T> *prev = NULL;
+        Node<T> *next = NULL;
+
+
+        while (current != NULL){
+            next = current->next;
+            current->next = prev;
+            prev = current;
+            current= next;
+        }
+
+        head = prev;
+
+    }
+
     bool isEmpty(){
         return head==NULL;
     }
@@ -246,6 +264,9 @@ int main()
     l.insertAtEnd(5);
     l.insertAtBeginning(6);
 
+    l.printList();
+    l.reverse();
+    cout<<endl;
     l.printList();
     cout<<endl;
 
