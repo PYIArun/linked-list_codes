@@ -1,0 +1,8 @@
+insertAtBeginning(T x)
+insertAtEnd(T x)
+insertAtIndex (T x, int index)
+isEmpty()
+length()
+printList()
+
+Remaining:
