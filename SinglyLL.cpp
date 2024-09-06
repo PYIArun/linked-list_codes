@@ -69,6 +69,32 @@ class List{
 
     }
 
+    void DeleteByValue(T x){
+
+        if(head == NULL){
+            cout<< "List is Empty!";
+            return;
+        }
+
+        Node<T> *temp = head;
+
+        if(head->data == x){
+            temp = head;
+            head = head->next;
+            delete temp;
+            return;
+        }
+
+        while(temp->next!=NULL & temp->next->data!= x){
+            temp = temp->next;
+        } 
+
+        Node<T> *deleteTemp = temp->next;
+        temp->next = temp->next->next;
+
+        delete deleteTemp;
+
+    }
     void deleteBeginning(){
         if(head == NULL){
             cout<< "List is Empty. Nothing to delete";
@@ -140,8 +166,6 @@ int main()
     l.insertAtEnd(4);
     l.insertAtEnd(5);
     l.insertAtBeginning(1);
-    l.DeleteAtIndex(4);
-
     l.printList();
     return 0;
 }
