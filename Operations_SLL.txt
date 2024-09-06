@@ -6,3 +6,23 @@ length()
 printList()
 
 Remaining:
+DeleteBeginning()
+DeleteEnd()
+DeleteAtIndex()
+DeleteByValue()
+DeleteAll()
+
+
+SearchbyValue(T x)
+SearchbyIndex(int index)
+
+
+Updating Node data;
+
+Reverse()
+Sort()
+Cycle or Not()
+Middle Element();
+Merge()
+RemoveDuplicates()
+Find nth Node from End()

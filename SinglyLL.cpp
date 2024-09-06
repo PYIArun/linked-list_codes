@@ -38,12 +38,21 @@ class List{
 
     }
 
-    void insertAtIndex(T x, int index){
+    void DeleteAtIndex(int index){
         
-        if(index<0 || index > this->length()){
+        if(index<0 || index >= this->length()){
             cout<< "Invalid Attempt!";
             return;
         }
+
+        if (index == 0){
+            Node<T> *temp = head;
+            head = head->next;
+            delete temp;
+            return;
+        }
+
+
         int counter = 0;
         Node <T> *temp = head;
 
@@ -51,14 +60,43 @@ class List{
             temp = temp->next;
             counter++;
         }
-        
-        Node <T> *newNode = new Node<T>(x);
 
-        newNode -> next = temp->next;
-        temp->next = newNode;
+        Node<T> *deleteTemp = temp->next;
+        temp->next = temp->next->next;
+
+
+        delete deleteTemp;
 
     }
 
+    void deleteBeginning(){
+        if(head == NULL){
+            cout<< "List is Empty. Nothing to delete";
+            return;
+        }
+        Node<T> *temp = head;
+        head = head->next;
+
+        delete temp;
+    }
+
+    void deleteEnd(){
+        if(head ==NULL){
+            cout<< "List is Empty. Nothing to delete";
+            return;
+        }
+
+        Node<T> *temp = head;
+        Node<T> *prev = NULL;
+        while(temp->next !=NULL){
+            prev = temp;
+            temp = temp->next;
+        }
+
+        prev->next = temp->next;
+        delete temp;
+
+    }
     bool isEmpty(){
         return head==NULL;
     }
@@ -102,6 +140,8 @@ int main()
     l.insertAtEnd(4);
     l.insertAtEnd(5);
     l.insertAtBeginning(1);
+    l.DeleteAtIndex(4);
+
     l.printList();
     return 0;
 }
