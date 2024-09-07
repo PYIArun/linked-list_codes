@@ -15,9 +15,9 @@ Find nth Node from End()
 Reverse()
 Cycle or Not()
 Middle Element();
+MergeTwoLists();
 
 
 Remaining:
 MergeSort();
-MergeTwoLists();
 RemoveDuplicates();

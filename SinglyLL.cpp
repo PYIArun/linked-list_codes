@@ -313,6 +313,23 @@ class List{
         return mergedList;
     }
 
+    void removeDuplicates(){
+        Node<T> *current = head;
+
+
+        while(current && current->next){
+
+            if(current->data == current->next->data){
+                Node<T> *temp = current->next;
+                current->next= current->next->next;
+                delete temp;
+            }
+            else{
+                current = current->next;
+            }
+
+        }
+    }
 
     
     bool isEmpty(){
@@ -373,5 +390,16 @@ int main()
 
 
     delete concatenated_list;
+
+    cout<<endl<< "_____________________\n";
+    List <int> l3 ;
+    l3.insertAtBeginning(3);
+    l3.insertAtBeginning(6);
+    l3.insertAtBeginning(2);
+    l3.insertAtBeginning(6);
+    l3.insertAtBeginning(6);
+    l3.insertAtBeginning(68);
+    l3.removeDuplicates();
+    l3.printList();
     return 0;
 }
