@@ -2,18 +2,18 @@
 using namespace std;
 
 template <class T>
-class Node {
+class sllNode {
 
     public:
     T data;
-    Node<T> *next;
+   sllNode<T> *next;
 
-    Node(){
+   sllNode(){
         this->data = 0;
         this->next = NULL;
     }
 
-    Node(T x){
+   sllNode(T x){
         this->data = x;
         this->next = NULL;
     }

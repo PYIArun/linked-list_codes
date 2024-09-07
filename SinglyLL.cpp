@@ -1,4 +1,4 @@
-#include "Node.h"
+#include "sllNode.h"
 #include <iostream>
 using namespace std;
 
@@ -7,7 +7,7 @@ template <class T>
 class List{
 
     public:
-    Node<T> *head;
+    sllNode<T> *head;
 
     List(){
         head = NULL;
@@ -15,7 +15,7 @@ class List{
 
     void insertAtBeginning(T x){
         
-        Node<T> *newNode = new Node<T>(x);
+        sllNode<T> *newNode = new sllNode<T>(x);
         newNode->next = head;
         head = newNode;
 
@@ -24,17 +24,17 @@ class List{
     void insertAtEnd(T x){
 
         if(this->isEmpty()){
-            head = new Node <T>(x);
+            head = new sllNode <T>(x);
             return;
         }
         
-        Node<T> *temp = head;
+        sllNode<T> *temp = head;
 
         while(temp->next!=NULL){
             temp = temp->next;
         }
 
-        temp->next = new Node<T>(x); 
+        temp->next = new sllNode<T>(x); 
 
     }
 
@@ -43,7 +43,7 @@ class List{
             cout<< "List is Empty. Nothing to delete";
             return;
         }
-        Node<T> *temp = head;
+        sllNode<T> *temp = head;
         head = head->next;
 
         delete temp;
@@ -55,8 +55,8 @@ class List{
             return;
         }
 
-        Node<T> *temp = head;
-        Node<T> *prev = NULL;
+        sllNode<T> *temp = head;
+        sllNode<T> *prev = NULL;
         while(temp->next !=NULL){
             prev = temp;
             temp = temp->next;
@@ -75,7 +75,7 @@ class List{
         }
 
         if (index == 0){
-            Node<T> *temp = head;
+            sllNode<T> *temp = head;
             head = head->next;
             delete temp;
             return;
@@ -83,14 +83,14 @@ class List{
 
 
         int counter = 0;
-        Node <T> *temp = head;
+        sllNode <T> *temp = head;
 
         while (counter<index-1){
             temp = temp->next;
             counter++;
         }
 
-        Node<T> *deleteTemp = temp->next;
+        sllNode<T> *deleteTemp = temp->next;
         temp->next = temp->next->next;
 
 
@@ -106,7 +106,7 @@ class List{
             return;
         }
 
-        Node<T> *temp = head;
+        sllNode<T> *temp = head;
 
         if(head->data == x){
             temp = head;
@@ -120,11 +120,11 @@ class List{
         } 
 
         if(temp->next == NULL){
-            cout<< "No Node with this value found.";
+            cout<< "No sllNode with this value found.";
             return;
         }
 
-        Node<T> *deleteTemp = temp->next;
+        sllNode<T> *deleteTemp = temp->next;
         temp->next = temp->next->next;
 
         delete deleteTemp;
@@ -136,7 +136,7 @@ class List{
             cout << "List is Empty!";
             return;
         }
-        Node <T> *temp = NULL;
+        sllNode <T> *temp = NULL;
         while(head->next!= NULL){
             temp = head;
             head = head->next;
@@ -155,7 +155,7 @@ class List{
             return 0;
         }
 
-        Node<T> *temp = head;
+        sllNode<T> *temp = head;
 
         if(head->data == x){
             return 1;
@@ -181,7 +181,7 @@ class List{
             return -1;
         }
 
-        Node<T> *temp = head;
+        sllNode<T> *temp = head;
 
 
         int counter = 0;
@@ -198,9 +198,9 @@ class List{
     }
 
     void reverse(){
-        Node<T> *current = head;
-        Node<T> *prev = NULL;
-        Node<T> *next = NULL;
+        sllNode<T> *current = head;
+        sllNode<T> *prev = NULL;
+        sllNode<T> *next = NULL;
 
 
         while (current != NULL){
@@ -214,8 +214,8 @@ class List{
     }
 
     bool detectLoop(){
-            Node<T> *fast = head;
-            Node<T> *slow = head;
+            sllNode<T> *fast = head;
+            sllNode<T> *slow = head;
 
             while(fast!=NULL && fast->next !=NULL){
 
@@ -240,8 +240,8 @@ class List{
             return T();
         }
 
-        Node<T> *fast = head;
-        Node<T> *slow = head;
+        sllNode<T> *fast = head;
+        sllNode<T> *slow = head;
 
         while(fast!=NULL && fast->next !=NULL){
             slow = slow->next;
@@ -252,19 +252,19 @@ class List{
 
     }
 
-    Node<T>* FindnthNodefromEnd(int n){
+    sllNode<T>* FindnthNodefromEnd(int n){
 
         if (head == NULL) {
             cout << "List is Empty!";
             return NULL;
         }
 
-        Node<T> *first = head;
-        Node<T> *second = head;
+        sllNode<T> *first = head;
+        sllNode<T> *second = head;
 
         for(int i =0; i<n; i++){
             if(first==NULL){
-                cout<<"This list has fewer nodes that "<< n<< ".";
+                cout<<"This list has fewer sllNodes that "<< n<< ".";
                 return NULL;
 
             }
@@ -284,8 +284,8 @@ class List{
         
         List<T> *mergedList = new List<T>();
 
-        Node<T> *first = L1->head;
-        Node<T> *second = L2->head;
+        sllNode<T> *first = L1->head;
+        sllNode<T> *second = L2->head;
 
         while (first && second){
             
@@ -314,13 +314,13 @@ class List{
     }
 
     void removeDuplicates(){
-        Node<T> *current = head;
+        sllNode<T> *current = head;
 
 
         while(current && current->next){
 
             if(current->data == current->next->data){
-                Node<T> *temp = current->next;
+                sllNode<T> *temp = current->next;
                 current->next= current->next->next;
                 delete temp;
             }
@@ -338,7 +338,7 @@ class List{
 
     int length (){
 
-        Node<T> *temp = head;
+        sllNode<T> *temp = head;
 
         int length = 1;
 
@@ -354,7 +354,7 @@ class List{
         if(this->isEmpty()){
             cout<<"List is Empty!";
         }
-        Node<T> *temp = head;
+        sllNode<T> *temp = head;
 
         while(temp->next!= NULL){
             cout<< temp->data << " -> ";
