@@ -38,7 +38,6 @@ class List{
 
     }
 
-    
     void deleteBeginning(){
         if(head == NULL){
             cout<< "List is Empty. Nothing to delete";
@@ -148,9 +147,7 @@ class List{
         head= NULL;
         delete temp;
     }
-    
-
-    
+        
     int findValue(T x){
 
         if(head == NULL){
@@ -200,8 +197,6 @@ class List{
         return temp->data;
     }
 
-
-
     void reverse(){
         Node<T> *current = head;
         Node<T> *prev = NULL;
@@ -216,6 +211,72 @@ class List{
         }
 
         head = prev;
+    }
+
+    bool detectLoop(){
+            Node<T> *fast = head;
+            Node<T> *slow = head;
+
+            while(fast!=NULL && fast->next !=NULL){
+
+                fast = fast->next;
+                fast = fast->next;
+                slow = slow->next;
+
+                
+                if(fast==slow){
+                    return true;
+                }
+            }
+
+            return false;
+
+        }
+
+    T middleElement(){
+
+        if(head==NULL){
+            cout<<"List is Empty!";
+            return T();
+        }
+
+        Node<T> *fast = head;
+        Node<T> *slow = head;
+
+        while(fast!=NULL && fast->next !=NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        return slow->data;
+
+    }
+
+    Node<T>* FindnthNodefromEnd(int n){
+
+        if (head == NULL) {
+            cout << "List is Empty!";
+            return NULL;
+        }
+
+        Node<T> *first = head;
+        Node<T> *second = head;
+
+        for(int i =0; i<n; i++){
+            if(first==NULL){
+                cout<<"This list has fewer nodes that "<< n<< ".";
+                return null;
+
+            }
+            first= first->next;
+        }
+
+        while(first!=NULL && first->next != NULL){
+            first= first->next;
+            second= second->next;
+        }
+
+        return second;
 
     }
 
@@ -250,8 +311,6 @@ class List{
 
         cout<< temp->data;
     }
-
-
 
 };
 
