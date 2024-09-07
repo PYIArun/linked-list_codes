@@ -265,7 +265,7 @@ class List{
         for(int i =0; i<n; i++){
             if(first==NULL){
                 cout<<"This list has fewer nodes that "<< n<< ".";
-                return null;
+                return NULL;
 
             }
             first= first->next;
@@ -280,6 +280,41 @@ class List{
 
     }
 
+    static List<T>* mergeTwoList(List<T> *L1, List<T> *L2){
+        
+        List<T> *mergedList = new List<T>();
+
+        Node<T> *first = L1->head;
+        Node<T> *second = L2->head;
+
+        while (first && second){
+            
+            if(first->data <second->data){
+                mergedList->insertAtEnd(first->data);
+                first = first->next;
+            }
+            else{
+                mergedList->insertAtEnd(second->data);
+                second = second->next;
+            }
+        }
+
+        while(first){
+            mergedList->insertAtEnd(first->data);
+            first = first->next;
+        }
+
+        while(second){
+            mergedList->insertAtEnd(second->data);
+            second = second->next;
+        }
+
+
+        return mergedList;
+    }
+
+
+    
     bool isEmpty(){
         return head==NULL;
     }
@@ -317,17 +352,26 @@ class List{
 int main()
 {
 
-    List<int> l;
-    l.insertAtEnd(3);
-    l.insertAtEnd(4);
-    l.insertAtEnd(5);
-    l.insertAtBeginning(6);
+    List<int> l1;
+    l1.insertAtEnd(3);
+    l1.insertAtEnd(4);
+    l1.insertAtEnd(5);
 
-    l.printList();
-    l.reverse();
-    cout<<endl;
-    l.printList();
-    cout<<endl;
+    l1.printList();
 
+    cout<<endl;
+    List<int> l2;
+    l2.insertAtEnd(3);
+    l2.insertAtEnd(22);
+    l2.insertAtEnd(33);
+
+    l2.printList();
+
+    List<int>* concatenated_list = List<int>::mergeTwoList(&l1, &l2);
+    cout<<endl;
+    concatenated_list->printList();
+
+
+    delete concatenated_list;
     return 0;
 }

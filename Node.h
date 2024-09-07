@@ -1,8 +1,6 @@
 #include<iostream>
 using namespace std;
 
-
-
 template <class T>
 class Node {
 
@@ -19,5 +17,4 @@ class Node {
         this->data = x;
         this->next = NULL;
     }
-
 };

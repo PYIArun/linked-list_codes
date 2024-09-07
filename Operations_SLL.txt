@@ -4,25 +4,20 @@ insertAtIndex (T x, int index)
 isEmpty()
 length()
 printList()
-
-Remaining:
 DeleteBeginning()
 DeleteEnd()
 DeleteAtIndex()
 DeleteByValue()
 DeleteAll()
-
-
 SearchbyValue(T x)
 SearchbyIndex(int index)
-
-
-Updating Node data;
-
+Find nth Node from End()
 Reverse()
-Sort()
 Cycle or Not()
 Middle Element();
-Merge()
-RemoveDuplicates()
-Find nth Node from End()
+
+
+Remaining:
+MergeSort();
+MergeTwoLists();
+RemoveDuplicates();
