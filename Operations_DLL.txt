@@ -1,3 +1,21 @@
+GFGs:
+Operations on Doubly Linked List
+Done | Traversal in Doubly Linked List
+Done | Searching in Doubly Linked List
+Done | Finding Length of Doubly Linked List
+Insertion in Doubly Linked List:
+Done | Insertion at the beginning of Doubly Linked List
+Done | Insertion at the end of the Doubly Linked List
+Done | Insertion at a specific position in Doubly Linked List
+
+Done | Deletion in Doubly Linked List:
+
+Done | Deletion of a node at the beginning of Doubly Linked List
+
+Done | Deletion of a node at the end of Doubly Linked List
+
+Done | Deletion of a node at a specific position in Doubly Linked List
+
 insertAtBeginning(T x)
 insertAtEnd(T x)
 insertAtIndex (T x, int index)
