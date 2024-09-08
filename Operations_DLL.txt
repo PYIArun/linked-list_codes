@@ -16,26 +16,22 @@ Done | Deletion of a node at the end of Doubly Linked List
 
 Done | Deletion of a node at a specific position in Doubly Linked List
 
+
 insertAtBeginning(T x)
 insertAtEnd(T x)
 insertAtIndex (T x, int index)
 isEmpty()
 length()
 printList()
-
-Remaining:
 DeleteBeginning()
 DeleteEnd()
 DeleteAtIndex()
 DeleteByValue()
 DeleteAll()
-
-
 SearchbyValue(T x)
 SearchbyIndex(int index)
-
-
 Updating Node data;
+
 
 Reverse()
 Sort()

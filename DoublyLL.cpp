@@ -205,6 +205,32 @@ class dList{
 
         cout<<temp->data;
     }
+
+
+    void reverse(){
+        if(head==nullptr){
+            return;
+        }
+
+
+        dllNode<T> *temp = nullptr;
+        dllNode<T> *current = head;
+        
+        while(current != nullptr){
+
+            temp = current->prev;
+            current->prev = current->next;
+            current->next = temp;
+
+
+            current = current->prev;
+        }
+
+
+        if(temp!=nullptr){
+            head = temp->prev;
+        }
+    }
 };
 
 
@@ -221,8 +247,9 @@ int main(){
     cout<<endl;
     cout<< "Length of List is: "<< L1.length();
     cout<<endl;
-    L1.deleteBeginning();
-    L1.deleteAtIndex(2);
+    L1.printList();
+    L1.reverse();
+    cout<<endl;
     L1.printList();
     return 0;
 }
